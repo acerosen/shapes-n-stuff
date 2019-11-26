@@ -13,10 +13,11 @@ public class Point3D {
 		_point3D= point._point3D;
 	}
 	//Getter
-	public double get() {
-		return (_point3D.x.get(), _point3D.y.get(), _point3D.z.get());
+
+	public Point3D get_point3D() {
+		return _point3D;
 	}
-//Operations
+	//Operations
 	//Subtract point from point to make vector
 	@SuppressWarnings("null")
 	public Vector makeVector (Point3D _point) {
@@ -39,6 +40,13 @@ public class Point3D {
 	public double getDistance (Point3D _point) {
 		return Math.pow(_point.getDistance(_point.other), 0.5);
 	}
+	//toString
+	@Override
+	public String toString() {
+		return "Point3D [_point3D=" + _point3D + "]";
+	}
+	
+	
 	
 	
 	

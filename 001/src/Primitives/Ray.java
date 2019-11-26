@@ -17,5 +17,13 @@ public class Ray {
 		if (_ray == null)
 			throw new InvalidArgument(); 
 					
-	}	
+	}
+	//toString
+	@Override
+	public String toString() {
+		return "Ray [Ray=" + Ray + "]";
+	}
+	
+
+	
 }
