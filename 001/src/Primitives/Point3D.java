@@ -1,6 +1,12 @@
 package Primitives;
 import java.lang.Math;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public class Point3D {
 	public Coordinate x;
 	public Coordinate y;
@@ -12,6 +18,16 @@ public class Point3D {
 	Point3D (Point3D point){
 		_point3D= point._point3D;
 	}
+	
+	
+	public Point3D(Coordinate x, Coordinate y, Coordinate z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+
 	//Getter
 
 	public Point3D get_point3D() {
@@ -19,9 +35,8 @@ public class Point3D {
 	}
 	//Operations
 	//Subtract point from point to make vector
-	@SuppressWarnings("null")
 	public Vector makeVector (Point3D _point) {
-		Vector Vec = null;
+		Vector Vec = new Vector(new Coordinate(0), new Coordinate(0), new Coordinate (0));
 		Vec.x = _point.x.subtract(_point.other.x) ;
 		Vec.y = _point.y.subtract(_point.other.y) ;
 		Vec.z = _point.z.subtract(_point.other.z) ;

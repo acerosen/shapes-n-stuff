@@ -1,5 +1,11 @@
 package Primitives;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public class Vector {
 	public Point3D head;
 	public Coordinate x;
@@ -12,6 +18,15 @@ public class Vector {
 	Vector(Vector vector) {
 		_vector = vector._vector;
 	}
+	
+
+	public Vector(Coordinate x, Coordinate y, Coordinate z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
 
 	// Check if 0
 	public void checkZero() throws InvalidArgument {
@@ -30,8 +45,8 @@ public class Vector {
 	}
 
 	// Getter
-	public double get() {
-		return (_vector.head.get());
+	public Point3D get() {
+		return (_vector.head.get_point3D());
 	}
 
 //Operations

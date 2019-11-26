@@ -1,5 +1,11 @@
 package Primitives;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public class InvalidArgument extends Exception{
 	
 	/**

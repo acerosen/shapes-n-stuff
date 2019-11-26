@@ -5,8 +5,11 @@ import Primitives.Coordinate;
 import Primitives.InvalidArgument;
 import Geometries.Triangle;
 
-
-
+/**
+ * 
+ * @author eytan
+ *
+ */
 
 public class Main {
 

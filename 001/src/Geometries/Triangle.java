@@ -1,7 +1,12 @@
 package Geometries;
-import Primitives.Coordinate;
 import Primitives.Point3D;
 import Primitives.Vector;
+
+/**
+ * 
+ * @author eytan
+ *
+ */
 
 public class Triangle {
 	public Plane _plane;
@@ -11,6 +16,18 @@ public class Triangle {
 	public Triangle _triangle;
 	
 	
+	
+	
+public Triangle(Point3D _p1, Point3D _p2, Point3D _p3) {
+		super();
+		this._p1 = _p1;
+		this._p2 = _p2;
+		this._p3 = _p3;
+	}
+
+
+
+
 //Operations
 	
 	//Get Normal Vector

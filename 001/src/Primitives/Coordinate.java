@@ -2,6 +2,12 @@ package Primitives;
 
 import static Primitives.Util.*;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public final class Coordinate {
 	//private static final double EPSILON = 0.0000001;
 	protected double _coord;

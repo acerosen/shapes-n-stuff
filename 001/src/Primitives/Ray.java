@@ -1,5 +1,11 @@
 package Primitives;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public class Ray {
 	public Vector Ray;
 	private Ray _ray;

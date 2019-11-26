@@ -5,6 +5,12 @@ import java.util.List;
 import Primitives.Point3D;
 import Primitives.Vector;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public class Polygon {
 	public List<Point3D> _points;
 	public Plane _plane;
