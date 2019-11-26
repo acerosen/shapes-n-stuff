@@ -10,13 +10,13 @@ import Primitives.Vector;
  */
 
 public class Sphere extends RadialGeometry {
-	
+
 	public Point3D _center;
-	
+
 //Operations
-	
-	//Get Normal Vector
-	public Vector getNormal () {
+
+	// Get Normal Vector
+	public Vector getNormal() {
 		return null;
 	}
 }

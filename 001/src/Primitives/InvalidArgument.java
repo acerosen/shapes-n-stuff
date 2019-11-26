@@ -6,8 +6,8 @@ package Primitives;
  *
  */
 
-public class InvalidArgument extends Exception{
-	
+public class InvalidArgument extends Exception {
+
 	/**
 	 * 
 	 */

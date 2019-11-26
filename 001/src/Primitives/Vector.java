@@ -7,57 +7,37 @@ package Primitives;
  */
 
 public class Vector {
-	public Point3D head;
-	public Coordinate x;
-	public Coordinate y;
-	public Coordinate z;
-	private Vector _vector;
-	private Vector other;
+	private Point3D _head;
 
 	// Constructor
 	Vector(Vector vector) {
-		_vector = vector._vector;
+		_head = new Point3D(vector._head);
 	}
-	
 
 	public Vector(Coordinate x, Coordinate y, Coordinate z) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		_head = new Point3D(x, y, z);
+		if (Point3D.ZERO.equals(_head))
+			throw new IllegalArgumentException("Zero vector");
 	}
 
-
-	// Check if 0
-	public void checkZero() throws InvalidArgument {
-		if (_vector == null)
-			throw new InvalidArgument();
-
-	}
-
-	@SuppressWarnings("null")
-	Point3D Head(Vector vector) {
-		Point3D Head = null;
-		Head.x = vector.x;
-		head.y = vector.y;
-		head.z = vector.z;
-		return Head;
+	public Vector(double x, double y, double z) {
+		_head = new Point3D(x, y, z);
+		if (Point3D.ZERO.equals(_head))
+			throw new IllegalArgumentException("Zero vector");
 	}
 
 	// Getter
-	public Point3D get() {
-		return (_vector.head.get_point3D());
+	public Point3D getHead() {
+		return _head;
 	}
 
 //Operations
 	// Vector Addition
-	@SuppressWarnings("null")
-	public Vector vectorAddition(Vector _vector) {
-		Vector Result = null;
-		Result.x = _vector.x.add(_vector.other.x);
-		Result.y = _vector.y.add(_vector.other.y);
-		Result.z = _vector.z.add(_vector.other.z);
-		return Result;
+	public Vector add(Vector other) {
+		double x = _head.getX().get() + other._head.getX().get();
+//		Result.y = _vector.y.add(_vector.other.y);
+//		Result.z = _vector.z.add(_vector.other.z);
+		return new Vector(x, y, z);
 	}
 
 	// Vector Subtraction
@@ -106,12 +86,11 @@ public class Vector {
 		Result = _vector.vectorScale(1 / distance);
 		return Result;
 	}
-
-	//toString
+	
+	// toString
 	@Override
 	public String toString() {
-		return "Vector [_vector=" + _vector + "]";
+		return "->" + _head;
 	}
 
-	
 }

@@ -9,15 +9,14 @@ import Primitives.Vector;
  *
  */
 
-public class Tube extends RadialGeometry {
-	
-	public Ray _axisRay;
-	
-//Operations
-	
+public class Tube extends RadialGeometry implements Geometry {
 
-	//Get Normal Vector
-	public Vector getNormal () {
+	public Ray _axisRay;
+
+//Operations
+
+	// Get Normal Vector
+	public Vector getNormal() {
 		return null;
 	}
 

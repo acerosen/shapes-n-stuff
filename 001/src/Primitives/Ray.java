@@ -7,29 +7,31 @@ package Primitives;
  */
 
 public class Ray {
-	public Vector Ray;
-	private Ray _ray;
-	
+	private Vector dir;
+	private Point3D p0;
+
 //Constructor
-	Ray (Ray ray){
-		_ray = ray._ray;
-    }
+	Ray(Point3D p0, Vector dir) {
+		this.p0 = p0;
+		this.dir = dir.getNormal();
+	}
+
 //Getter
 	public double get() {
 		return (_ray.get());
 	}
+
 //Check if 0
-	public void checkZero () throws InvalidArgument {
+	public void checkZero() throws InvalidArgument {
 		if (_ray == null)
-			throw new InvalidArgument(); 
-					
+			throw new InvalidArgument();
+
 	}
-	//toString
+
+	// toString
 	@Override
 	public String toString() {
-		return "Ray [Ray=" + Ray + "]";
+		return "[" + p0 + dir;
 	}
-	
 
-	
 }

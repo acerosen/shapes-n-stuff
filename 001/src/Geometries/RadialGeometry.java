@@ -6,9 +6,8 @@ package Geometries;
  *
  */
 
-public class RadialGeometry {
-	
-	public	double _radius;
-	
+public abstract class RadialGeometry {
+
+	private double _radius;
 
 }

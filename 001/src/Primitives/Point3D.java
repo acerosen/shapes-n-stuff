@@ -1,4 +1,5 @@
 package Primitives;
+
 import java.lang.Math;
 
 /**
@@ -8,63 +9,74 @@ import java.lang.Math;
  */
 
 public class Point3D {
-	public Coordinate x;
-	public Coordinate y;
-	public Coordinate z;
-	private Point3D _point3D;
-	private Point3D other;
-	
-	//Constructor
-	Point3D (Point3D point){
-		_point3D= point._point3D;
+	public static Point3D ZERO = new Point3D(0, 0, 0);
+
+	private Coordinate _x;
+	private Coordinate _y;
+	private Coordinate _z;
+
+	// Constructor
+	Point3D(Point3D point) {
+		_x = new Coordinate(point._x);
+		_y = new Coordinate(point._y);
+		_z = new Coordinate(point._z);
 	}
-	
-	
+
 	public Point3D(Coordinate x, Coordinate y, Coordinate z) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		_x = new Coordinate(x);
+		_y = new Coordinate(y);
+		_z = new Coordinate(z);
 	}
 
+	public Point3D(double x, double y, double z) {
+		_x = new Coordinate(x);
+		_y = new Coordinate(y);
+		_z = new Coordinate(z);
+	}
 
-	//Getter
+	// Getter
 
-	public Point3D get_point3D() {
-		return _point3D;
+	public Coordinate getX() {
+		return _x;
 	}
-	//Operations
-	//Subtract point from point to make vector
-	public Vector makeVector (Point3D _point) {
-		Vector Vec = new Vector(new Coordinate(0), new Coordinate(0), new Coordinate (0));
-		Vec.x = _point.x.subtract(_point.other.x) ;
-		Vec.y = _point.y.subtract(_point.other.y) ;
-		Vec.z = _point.z.subtract(_point.other.z) ;
-		return Vec;
+
+	public Coordinate getY() {
+		return _y;
 	}
-	//Get distance between two points
-	public double getSquaredDistance (Point3D _point) {
-		Coordinate coord1 =(_point.x.subtract(_point.other.x));
-		Coordinate coord2= (_point.y.subtract(_point.other.y));
-		Coordinate coord3= (_point.z.subtract(_point.other.z));
-		double x = Math.pow(coord1.get(), 2);
-		double y = Math.pow(coord2.get(), 2);
-		double z = Math.pow(coord3.get(), 2);
-		return x+y+z;
+
+	public Coordinate getZ() {
+		return _z;
 	}
-	public double getDistance (Point3D _point) {
-		return Math.pow(_point.getDistance(_point.other), 0.5);
+
+	// Operations
+	// Subtract point from point to make vector
+	public Vector subtract(Point3D other) {
+		double x = _x.get() - other._x.get();
+//		Vec.y = _point._y.subtract(_point.other._y);
+//		Vec.z = _point._z.subtract(_point.other._z);
+		return new Vector(x, y, z);
 	}
-	//toString
+
+	// Get distance between two points
+	public double getSquaredDistance(Point3D _point) {
+		Coordinate coord1 = (_point._x.subtract(_point.other._x));
+		Coordinate coord2 = (_point._y.subtract(_point.other._y));
+		Coordinate coord3 = (_point._z.subtract(_point.other._z));
+		double x = (coord1.multiply(coord1)).get();
+		double y = (coord2.multiply(coord2)).get();
+		double z = (coord3.multiply(coord3)).get();
+
+		return x + y + z;
+	}
+
+	public double getDistance(Point3D _point) {
+		return Math.sqrt(getDistance(_point.other));
+	}
+
+	// toString
 	@Override
 	public String toString() {
-		return "Point3D [_point3D=" + _point3D + "]";
+		return "(" + _x + "," + _y + "," + _z + ")";
 	}
-	
-	
-	
-	
-	
-	
 
 }
