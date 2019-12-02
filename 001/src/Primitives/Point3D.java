@@ -50,18 +50,18 @@ public class Point3D {
 
 	// Operations
 	// Subtract point from point to make vector
-	public Vector subtract(Point3D other) {
-		double x = _x.get() - other._x.get();
-//		Vec.y = _point._y.subtract(_point.other._y);
-//		Vec.z = _point._z.subtract(_point.other._z);
+	public Vector subtract(Point3D point) {
+		double x = _x.get() - point._x.get();
+		double y = _y.get() - point._y.get();
+		double z = _z.get() - point._z.get();
 		return new Vector(x, y, z);
 	}
 
 	// Get distance between two points
 	public double getSquaredDistance(Point3D _point) {
-		Coordinate coord1 = (_point._x.subtract(_point.other._x));
-		Coordinate coord2 = (_point._y.subtract(_point.other._y));
-		Coordinate coord3 = (_point._z.subtract(_point.other._z));
+		Coordinate coord1 = new Coordinate(_x.subtract(_point._x));
+		Coordinate coord2 = new Coordinate(_y.subtract(_point._y));
+		Coordinate coord3 = new Coordinate(_z.subtract(_point._z));
 		double x = (coord1.multiply(coord1)).get();
 		double y = (coord2.multiply(coord2)).get();
 		double z = (coord3.multiply(coord3)).get();
@@ -70,7 +70,7 @@ public class Point3D {
 	}
 
 	public double getDistance(Point3D _point) {
-		return Math.sqrt(getDistance(_point.other));
+		return Math.sqrt(getSquaredDistance(_point));
 	}
 
 	// toString

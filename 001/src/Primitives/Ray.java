@@ -17,15 +17,8 @@ public class Ray {
 	}
 
 //Getter
-	public double get() {
-		return (_ray.get());
-	}
-
-//Check if 0
-	public void checkZero() throws InvalidArgument {
-		if (_ray == null)
-			throw new InvalidArgument();
-
+	public Point3D get() {
+		return (dir.getHead());
 	}
 
 	// toString

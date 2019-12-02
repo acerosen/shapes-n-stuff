@@ -24,10 +24,9 @@ public class Main {
 		// Point3D Tests
 
 		// Vector Test
-		Point3D _p2 = new Point3D(new Coordinate(1), new Coordinate(1), new Coordinate(1));
-		Point3D _p3 = new Point3D(new Coordinate(2), new Coordinate(2), new Coordinate(2));
-		Vector vec = _p3.subtract(_p2);
-		vec.toString();
+		Point3D _p2 = new Point3D(1, 1, 1);
+		Point3D _p3 = new Point3D(2, 2, 2);
+		System.out.println("Sub: " + _p3.subtract(_p2).toString());
 		// Distance Test
 		double Dist = _p2.getDistance(_p3);
 		double sqrDist = _p2.getSquaredDistance(_p3);
@@ -36,40 +35,21 @@ public class Main {
 
 		// Vector Tests
 
-		// Zero Test
-		try {
-			vec.checkZero();
-		} catch (InvalidArgument e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		// Addition
-		Vector vec2 = new Vector(new Coordinate(5), new Coordinate(5), new Coordinate(5));
-		vec.add(vec2).toString();
+		Vector vec = new Vector(1, 1, 1);
+		Vector vec2 = new Vector(5, 5, 5);
+		System.out.println("Add: " + (vec.add(vec2).toString()));
 		// Subtraction
-		vec2.vectorSubtraction(vec).toString();
+		System.out.println("Sub: " + vec2.vectorSubtraction(vec).toString());
 		// Scale
-		vec2.vectorScale(10).toString();
+		System.out.println("Scale: " + vec2.vectorScale(10).toString());
 		// Dot Product
-		System.out.println(vec.dotProduct(vec2));
+		System.out.println("Dot: " + vec.dotProduct(vec2));
 		// Cross Product
-		vec.crossProduct(vec2).toString();
+		System.out.println("Cross: " + vec.crossProduct(vec2).toString());
 		// Get Normal
-		vec.getNormal().toString();
+		System.out.println("Normal: " + vec.getNormal().toString());
 
-		// Geometries Test
-
-		// Triangle Tests
-
-		// Get Normal
-		Point3D _p1 = new Point3D(new Coordinate(0.0), new Coordinate(0), new Coordinate(0));
-		List<Point3D> points = new ArrayList<Point3D>();
-		points.add(_p1);
-		points.add(_p2);
-		points.add(_p3);
-		Triangle tri = new Triangle(points);
-		tri.getNormal().toString();
 
 	}
-
 }
