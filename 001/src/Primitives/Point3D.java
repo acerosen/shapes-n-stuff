@@ -25,6 +25,7 @@ public class Point3D {
 		_y = new Coordinate(point._y);
 		_z = new Coordinate(point._z);
 	}
+
 	/**
 	 * @name Point3D
 	 * @param x
@@ -36,8 +37,10 @@ public class Point3D {
 		_y = new Coordinate(y);
 		_z = new Coordinate(z);
 	}
+
 	/**
 	 * Point3D
+	 * 
 	 * @param x
 	 * @param y
 	 * @param z
@@ -56,6 +59,7 @@ public class Point3D {
 	public Coordinate getX() {
 		return _x;
 	}
+
 	/**
 	 * @name getY
 	 * @return Coordinate
@@ -63,6 +67,7 @@ public class Point3D {
 	public Coordinate getY() {
 		return _y;
 	}
+
 	/**
 	 * @name getZ
 	 * @return Coordinate
@@ -72,14 +77,19 @@ public class Point3D {
 	}
 
 	// ***************** Operations ******************** //
+	public Point3D add(Vector vec) {
+		double x = _x.get() + vec.getHead()._x.get();
+		double y = _y.get() + vec.getHead()._y.get();
+		double z = _z.get() + vec.getHead()._z.get();
+		return new Point3D(x, y, z);
+	}
+
 	/**
 	 * @name subtract
 	 * @param point
 	 * @return: Vector
 	 * @description Subtracts Point from This to create vector
 	 */
-
-	// Subtract point from point to make vector
 	public Vector subtract(Point3D point) {
 		double x = _x.get() - point._x.get();
 		double y = _y.get() - point._y.get();
@@ -93,15 +103,14 @@ public class Point3D {
 	 * @return double
 	 * @description Gets distance (without sqrt) between 2 points
 	 */
-	public double getSquaredDistance(Point3D _point) {
-		Coordinate coord1 = new Coordinate(_x.subtract(_point._x));
-		Coordinate coord2 = new Coordinate(_y.subtract(_point._y));
-		Coordinate coord3 = new Coordinate(_z.subtract(_point._z));
-		double x = (coord1.multiply(coord1)).get();
-		double y = (coord2.multiply(coord2)).get();
-		double z = (coord3.multiply(coord3)).get();
-
-		return x + y + z;
+	public double distance2(Point3D other) {
+		if (this.equals(other))
+			return 0;
+		double a = (this.getX().get()) - (other.getX().get());
+		double b = (this.getY().get()) - (other.getY().get());
+		double c = (this.getZ().get()) - (other.getZ().get());
+		double temp = (a * a) + (b * b) + (c * c);
+		return temp;
 	}
 
 	/**
@@ -110,8 +119,8 @@ public class Point3D {
 	 * @return double
 	 * @description returns distance with sqrt
 	 */
-	public double getDistance(Point3D _point) {
-		return Math.sqrt(getSquaredDistance(_point));
+	public double distance(Point3D _point) {
+		return Math.sqrt(distance2(_point));
 	}
 
 	// ***************** Administration ******************** //

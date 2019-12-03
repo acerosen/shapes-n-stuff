@@ -2,6 +2,12 @@ package Geometries;
 
 import Primitives.*;
 
+/**
+ * 
+ * @author eytan
+ *
+ */
+
 public class Cylinder extends Tube {
 
 	public double _height;
@@ -13,7 +19,7 @@ public class Cylinder extends Tube {
 	 * @param _height
 	 * @param _axis
 	 */
-	Cylinder(double _radius, double _height, Ray _axis) {
+	public Cylinder(double _radius, double _height, Ray _axis) {
 		super(_axis, _radius);
 		if (_height > 0)
 			this._height = _height;
@@ -27,8 +33,12 @@ public class Cylinder extends Tube {
 	 * @return Vector
 	 * @description returns normal vector to cylinder
 	 */
-	public Vector getNormal() {
-		return null;
+	public Vector getNormal(Point3D point) {
+		double dist = point.distance(_axisRay.getP0());
+		if(dist<_height)
+			return super.getNormal(point);
+		else
+			throw new ArithmeticException("no normal in point"); 
 	}
 
 }

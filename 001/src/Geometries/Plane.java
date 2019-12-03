@@ -21,7 +21,7 @@ public class Plane implements Geometry {
 	 */
 	public Plane(Point3D p, Vector normal) {
 		this._p = p;
-		this._normal = normal.getNormal();
+		_normal = normal.normal();
 	}
 
 	/**
@@ -45,6 +45,7 @@ public class Plane implements Geometry {
 	public Vector getNormal() {
 		return _normal;
 	}
+
 	/**
 	 * @name getNormal
 	 * @return _normal

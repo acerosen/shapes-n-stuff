@@ -8,6 +8,6 @@ package Geometries;
 
 public abstract class RadialGeometry {
 
-	private double _radius;
+	protected double _radius;
 
 }

@@ -1,9 +1,6 @@
 package Geometries;
 
-import java.util.List;
-
 import Primitives.Point3D;
-import Primitives.Vector;
 
 /**
  * 
@@ -24,8 +21,7 @@ public class Triangle extends Polygon {
 		super(_p1, _p2, _p3);
 	}
 
-
-	// ***************** Administration  ******************** //
+	// ***************** Administration ******************** //
 	/**
 	 * @name toString
 	 */

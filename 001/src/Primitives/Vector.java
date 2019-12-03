@@ -20,7 +20,7 @@ public class Vector {
 	}
 
 	/**
-	 * 
+	 * @name Vector
 	 * @param x
 	 * @param y
 	 * @param z
@@ -32,6 +32,12 @@ public class Vector {
 		if (Point3D.ZERO.equals(_head))
 			throw new IllegalArgumentException("Zero vector");
 	}
+	/**
+	 * @name Vector
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
 
 	public Vector(double x, double y, double z) {
 		_head = new Point3D(x, y, z);
@@ -117,8 +123,8 @@ public class Vector {
 	 * @return Vector
 	 * @description returns normalized vector
 	 */
-	public Vector getNormal() {
-		return (scale(1 / _head.getDistance(new Point3D(0, 0, 0))));
+	public Vector normal() {
+		return (scale(1 / _head.distance(new Point3D(0, 0, 0))));
 	}
 
 	// ***************** Administration ******************** //

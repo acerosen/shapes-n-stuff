@@ -16,9 +16,9 @@ public class Ray {
 	 * @param p0
 	 * @param dir
 	 */
-	Ray(Point3D p0, Vector dir) {
+	public Ray(Point3D p0, Vector dir) {
 		this.p0 = p0;
-		this.dir = dir.getNormal();
+		this.dir = dir.normal();
 	}
 
 	// ***************** Getters/Setters ********************** //
@@ -27,9 +27,22 @@ public class Ray {
 	 * @return Point3D
 	 */
 	public Point3D get() {
-		return (dir.getHead());
+		return (getDir().getHead());
+	}	
+	/**
+	 * @name getP0
+	 * @return p0
+	 */
+	public Point3D getP0() {
+		return p0;
 	}
-
+	/**
+	 * @name getDir
+	 * @return dir
+	 */
+	public Vector getDir() {
+		return dir;
+	}
 	// ***************** Administration ******************** //
 	/**
 	 * @name toString
@@ -37,7 +50,11 @@ public class Ray {
 	 */
 	@Override
 	public String toString() {
-		return "[" + p0 + dir;
+		return "[" + getP0() + getDir();
 	}
+
+
+
+
 
 }
