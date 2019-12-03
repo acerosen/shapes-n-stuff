@@ -1,13 +1,5 @@
 import Primitives.Vector;
 import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Coordinate;
-import Primitives.InvalidArgument;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import Geometries.Triangle;
 
 /**
  * 
@@ -36,19 +28,23 @@ public class Main {
 		// Vector Tests
 
 		// Addition
-		Vector vec = new Vector(1, 1, 1);
+		Vector vec = new Vector(1, 2, 3);
 		Vector vec2 = new Vector(5, 5, 5);
+		Vector vec3 = new Vector(5, 5, 5);
 		System.out.println("Add: " + (vec.add(vec2).toString()));
 		// Subtraction
-		System.out.println("Sub: " + vec2.vectorSubtraction(vec).toString());
+		System.out.println("Sub: " + vec2.subtract(vec).toString());
 		// Scale
-		System.out.println("Scale: " + vec2.vectorScale(10).toString());
+		System.out.println("Scale: " + vec2.scale(10).toString());
 		// Dot Product
-		System.out.println("Dot: " + vec.dotProduct(vec2));
+		System.out.println("Dot: " + vec.dot(vec2));
 		// Cross Product
-		System.out.println("Cross: " + vec.crossProduct(vec2).toString());
+		System.out.println("Cross: " + vec.cross(vec2).toString());
 		// Get Normal
 		System.out.println("Normal: " + vec.getNormal().toString());
+		// Equals
+		System.out.println( "Equals (expected false): " + vec.equals(vec2));
+		System.out.println( "Equals (expected true): " + vec2.equals(vec3));
 
 
 	}

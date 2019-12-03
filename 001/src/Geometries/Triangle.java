@@ -13,14 +13,22 @@ import Primitives.Vector;
 
 public class Triangle extends Polygon {
 
-//Constructors
-
+	// ***************** Constructors ********************** //
+	/**
+	 * @name Triangle
+	 * @param _p1
+	 * @param _p2
+	 * @param _p3
+	 */
 	public Triangle(Point3D _p1, Point3D _p2, Point3D _p3) {
 		super(_p1, _p2, _p3);
 	}
 
-//Operations
 
+	// ***************** Administration  ******************** //
+	/**
+	 * @name toString
+	 */
 	@Override
 	public String toString() {
 		return "△[" + _points + "]";

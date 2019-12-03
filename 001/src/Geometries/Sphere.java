@@ -13,9 +13,12 @@ public class Sphere extends RadialGeometry {
 
 	public Point3D _center;
 
-//Operations
-
-	// Get Normal Vector
+	// ***************** Operations ******************** //
+	/**
+	 * @name getNormal
+	 * @return Vector
+	 * @description returns normal to sphere
+	 */
 	public Vector getNormal() {
 		return null;
 	}

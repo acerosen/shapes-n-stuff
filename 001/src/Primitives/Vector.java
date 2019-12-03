@@ -9,10 +9,23 @@ package Primitives;
 public class Vector {
 	private Point3D _head;
 
-	// Constructor
+	// ***************** Constructors ********************** //
+	/**
+	 * @param vector
+	 * @return Vector
+	 */
+
 	Vector(Vector vector) {
 		_head = new Point3D(vector._head);
 	}
+
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @return Vector
+	 */
 
 	public Vector(Coordinate x, Coordinate y, Coordinate z) {
 		_head = new Point3D(x, y, z);
@@ -26,41 +39,70 @@ public class Vector {
 			throw new IllegalArgumentException("Zero vector");
 	}
 
-	// Getter
+	// ***************** Getters/Setters ********************** //
+	/**
+	 * @name getHead
+	 * @return _head
+	 */
 	public Point3D getHead() {
 		return _head;
 	}
 
-//Operations
-	// Vector Addition
-	public Vector add(Vector other) {
-		double x = _head.getX().get() + other._head.getX().get();
-		double y = _head.getY().get() + other._head.getY().get();
-		double z = _head.getZ().get() + other._head.getZ().get();
+	// ***************** Operations ******************** //
+	/**
+	 * @name add
+	 * @param vec
+	 * @return Vector
+	 * @description adds 2 vectors and returns result vector
+	 */
+	public Vector add(Vector vec) {
+		double x = _head.getX().get() + vec._head.getX().get();
+		double y = _head.getY().get() + vec._head.getY().get();
+		double z = _head.getZ().get() + vec._head.getZ().get();
 		return new Vector(x, y, z);
 	}
 
-	// Vector Subtraction
-	public Vector vectorSubtraction(Vector _vector) {
+	/**
+	 * @name vectorSubtraction
+	 * @param _vector
+	 * @return Vector
+	 * @description adds 2 vectors and returns result vector
+	 */
+	public Vector subtract(Vector _vector) {
 		return new Vector((_head.getX().subtract(_vector._head.getX())), (_head.getY().subtract(_vector._head.getY())),
 				(_head.getZ().subtract(_vector._head.getZ())));
 	}
 
-	// Scaling a Vector
-	public Vector vectorScale(double num) {
+	/**
+	 * @name scale
+	 * @param num
+	 * @return Vector
+	 * @description scales vector by scalar and returns result vector
+	 */
+	public Vector scale(double num) {
 		return new Vector((_head.getX().scale(num)), (_head.getY().scale(num)), (_head.getZ().scale(num)));
 	}
 
-	// Dot Product
-	public double dotProduct(Vector _vector) {
+	/**
+	 * @name dot
+	 * @param _vector
+	 * @return double
+	 * @description returns dot product of vector
+	 */
+	public double dot(Vector _vector) {
 		double x = _head.getX().get() * _vector._head.getX().get();
 		double y = _head.getY().get() * _vector._head.getY().get();
 		double z = _head.getZ().get() * _vector._head.getZ().get();
 		return x + y + z;
 	}
 
-	// Cross Product
-	public Vector crossProduct(Vector _vector) {
+	/**
+	 * @name cross
+	 * @param _vector
+	 * @return Vector
+	 * @description returns dot product of vector
+	 */
+	public Vector cross(Vector _vector) {
 		Double x = (_head.getY().get()) * (_vector._head.getZ().get())
 				- (_head.getZ().get()) * (_vector._head.getY().get());
 		Double y = (_head.getZ().get()) * (_vector._head.getX().get())
@@ -70,14 +112,30 @@ public class Vector {
 		return new Vector(x, y, z);
 	}
 
-	// Get Normal
+	/**
+	 * @name getNormal
+	 * @return Vector
+	 * @description returns normalized vector
+	 */
 	public Vector getNormal() {
-		Vector zero = new Vector (0, 0, 0);
-		double distance = _head.getDistance(zero._head);
-		return (vectorScale(1 / distance));
+		return (scale(1 / _head.getDistance(new Point3D(0, 0, 0))));
 	}
 
-	// toString
+	// ***************** Administration ******************** //
+	/**
+	 * @name equals
+	 * @param vec
+	 * @return boolean
+	 * @description checks if two vectors are equal
+	 */
+	public boolean equals(Vector vec) {
+		return (_head.equals(vec._head));
+	}
+
+	/**
+	 * @name toString
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return "->" + _head;
