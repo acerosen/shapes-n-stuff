@@ -1,4 +1,4 @@
-package Primitives;
+package primitives;
 
 import java.lang.Math;
 

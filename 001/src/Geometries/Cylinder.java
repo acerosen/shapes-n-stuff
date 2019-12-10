@@ -1,6 +1,6 @@
-package Geometries;
+package geometries;
 
-import Primitives.*;
+import primitives.*;
 
 /**
  * 
@@ -30,15 +30,19 @@ public class Cylinder extends Tube {
 	// ***************** Operations ******************** //
 	/**
 	 * @name getNormal
+	 * @param p
 	 * @return Vector
 	 * @description returns normal vector to cylinder
 	 */
-	public Vector getNormal(Point3D point) {
-		double dist = point.distance(_axisRay.getP0());
-		if(dist<_height)
-			return super.getNormal(point);
-		else
-			throw new ArithmeticException("no normal in point"); 
-	}
+	public Vector getNormal(Point3D p) {
+        Point3D p0 = _axisRay.getP0();
+        Vector v = _axisRay.getDir();
+        Vector u = p.subtract(p0); // vector from p0 to p
+        double t = v.dot(u); // size of projection of vector u on the ray
+        // point on the ray and plane crossing P and orthogonal to the ray
+        if ((t)==0 || (t - this._height)==0)
+            return v;
+        return p.subtract(p0.add(v.scale(t))).normal();
+    }
 
 }

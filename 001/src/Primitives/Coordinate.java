@@ -1,6 +1,6 @@
-package Primitives;
+package primitives;
 
-import static Primitives.Util.*;
+import static primitives.Util.*;
 
 /**
  * 

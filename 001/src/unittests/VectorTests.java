@@ -7,12 +7,14 @@ import junit.framework.TestCase;
 
 public class VectorTests extends TestCase {
 
+
+
 	@Test
 	public void testAdd() {
 		Vector vec = new Vector(1, 2, 3);
 		Vector vec2 = new Vector(5, 5, 5);
 		Vector result = new Vector(6, 7, 8);
-		assertTrue (result.equals(vec.add(vec2)));
+		assertEquals(result, vec.add(vec2));
 	}
 
 	@Test
@@ -20,6 +22,7 @@ public class VectorTests extends TestCase {
 		Vector vec = new Vector(1, 2, 3);
 		Vector vec2 = new Vector(5, 5, 5);
 		Vector result = new Vector(4, 3, 2);
-		assertTrue(result.equals(vec2.subtract(vec)));
+		assertEquals(result, vec.subtract(vec2));
 	}
-}
+
+	

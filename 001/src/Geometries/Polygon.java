@@ -1,10 +1,10 @@
-package Geometries;
+package geometries;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Primitives.Point3D;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Vector;
 
 /**
  * 
@@ -27,7 +27,7 @@ public class Polygon implements Geometry {
 		Vector normal = _plane.getNormal(null);
 		for (int i = 0; i < points.length; ++i) {
 			_points.add(points[i]);
-			if (i > 2 && !isZero(points[0].subtract(points[i]).dot(normal)))
+			if (i > 2 && (points[0].subtract(points[i]).dot(normal)) != 0)
 				throw new IllegalArgumentException();
 		}
 	}

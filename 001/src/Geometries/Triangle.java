@@ -1,6 +1,6 @@
-package Geometries;
+package geometries;
 
-import Primitives.Point3D;
+import primitives.Point3D;
 
 /**
  * 
